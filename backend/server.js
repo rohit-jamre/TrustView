@@ -16,6 +16,12 @@ const clientRoutes = require('./routes/clientRoutes');
 
 app.use('/api/projects', projectRoutes);
 app.use('/api/clients', clientRoutes); 
+const newsletterRoutes = require('./routes/newsletterRoutes');
+app.use('/api/newsletter', newsletterRoutes);
+const contactRoutes = require('./routes/contactRoutes');
+app.use('/api/contact', contactRoutes);
+
+
 
 app.get('/', (req, res) => {
   res.send('API is running...');
