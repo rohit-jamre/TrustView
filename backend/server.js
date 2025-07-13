@@ -9,10 +9,13 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+  .catch(err => console.error('MongoDB connection error:', err));
 
 const projectRoutes = require('./routes/projectRoutes');
+const clientRoutes = require('./routes/clientRoutes');
+
 app.use('/api/projects', projectRoutes);
+app.use('/api/clients', clientRoutes); 
 
 app.get('/', (req, res) => {
   res.send('API is running...');
